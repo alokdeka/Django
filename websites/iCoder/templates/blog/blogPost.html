@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+
+{% block title %} BlogPost {% endblock title %}
+
+{% block body %}
+<div class="container my-4">
+<div class="blog-post">
+        <h2 class="blog-post-title">{{post.title}}</h2>
+        <p class="blog-post-meta">{{post.timeStamp}} By <a href="/about">{{post.author}}</a></p>
+
+        <div class="border p-5">
+                <pre><p class="text-justify">{{post.content}}<p></pre>
+        </div>
+
+        <div class="fb-like" data-href="http://127.0.0.1:8000/blog/{{post.slug}}" data-width="" data-layout="standard" data-action="like" data-size="large" data-share="true"></div>
+        <div class="fb-comments" data-href="http://127.0.0.1:8000/blog/{{post.slug}}" data-width="" data-numposts="5"></div>
+        <hr>
+      </div>
+</div>
+
+{% endblock body %}
