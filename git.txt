@@ -1,0 +1,13 @@
+git status
+
+git init
+
+git config --global user.email "you@example.com"
+
+git config --global user.name "your_name"
+
+git log
+
+git commit -m "Version 1"
+
+
