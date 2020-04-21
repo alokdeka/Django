@@ -4,18 +4,34 @@
 
 {% block body %}
 <div class="container my-4">
-<div class="blog-post">
-        <h2 class="blog-post-title">{{post.title}}</h2>
-        <p class="blog-post-meta">{{post.timeStamp}} By <a href="/about">{{post.author}}</a></p>
+        <div class="blog-post">
+                <h2 class="blog-post-title">{{post.title}}</h2>
+                <p class="blog-post-meta">{{post.timeStamp}} By <a href="/about">{{post.author}}</a></p>
 
-        <div class="border p-5">
-                <pre><p class="text-justify">{{post.content}}<p></pre>
+                <div class="border p-5">
+                        <pre><p class="text-justify">{{post.content}}<p></pre>
+                </div>
+                <!-- 
+                <div class="fb-like" data-href="http://127.0.0.1:8000/blog/{{post.slug}}" data-width=""
+                        data-layout="standard" data-action="like" data-size="large" data-share="true">
+                </div>
+                <div class="fb-comments" data-href="http://127.0.0.1:8000/blog/{{post.slug}}" data-width=""
+                        data-numposts="5">
+                </div> -->
+                <hr>
         </div>
-
-        <div class="fb-like" data-href="http://127.0.0.1:8000/blog/{{post.slug}}" data-width="" data-layout="standard" data-action="like" data-size="large" data-share="true"></div>
-        <div class="fb-comments" data-href="http://127.0.0.1:8000/blog/{{post.slug}}" data-width="" data-numposts="5"></div>
-        <hr>
-      </div>
+</div>
+<div class="container">
+        <h2>Comments</h2>
+        <form action="/blog/postComment" method="POST">{% csrf_token %}
+                <input type="text" name="comment" id="comment" placeholder="Enter comment here......">
+                <input type="hidden" name="postSno" value="{{post.sno}}">
+                <input type="submit" value="Submit">
+        </form>
+        <div class="row my-3">
+                <div class="col-md-2 bg-success">Image here</div>
+                <div class="col-md-10 bg-primary"><p>{{post.comment}}</p></div>
+        </div>
 </div>
 
 {% endblock body %}
