@@ -57,7 +57,7 @@
             <form method="GET" action="/search" class="my-2 my-lg-0 mx-3">
                 <input name="query" id="query" class="form-control mr-sm-2" type="search" placeholder="Search"
                     aria-label="Search">
-                <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+                <button class="btn btn-outline-primary my-2 my-sm-0" type="submit">Search</button>
             </form>
             {% comment %} <a href="/admin" role="button" class="btn btn-outline-success m-2 my-sm-0" type="submit">Admin Panel</a> {% endcomment %}
             {% if user.is_authenticated %}
@@ -73,12 +73,12 @@
             
             {% else %}
             <!-- Button trigger login modal -->
-            <button type="button" class="btn btn-outline-success mr-2" data-toggle="modal" data-target="#loginModal">
+            <button type="button" class="btn btn-outline-primary mr-2" data-toggle="modal" data-target="#loginModal">
                 Login
             </button>
 
             <!-- Button trigger signup modal -->
-            <button type="button" class="btn btn-outline-success mr-2" data-toggle="modal" data-target="#signupModal">
+            <button type="button" class="btn btn-outline-primary mr-2" data-toggle="modal" data-target="#signupModal">
                 SignUp
             </button>
             {% endif %}
@@ -109,7 +109,7 @@
                     </button>
                 </div>
                 <div class="modal-body">
-                    <form action="signup" method="POST"> {% csrf_token %}
+                    <form action="/signup" method="POST"> {% csrf_token %}
                         <div class="form-group">
                             <label for="username">Username</label>
                             <input type="text" class="form-control" id="username" name="username" placeholder="Choose a unique username" Required>
@@ -161,7 +161,7 @@
                     </button>
                 </div>
                 <div class="modal-body">
-                    <form action='login' method='POST'>{% csrf_token %}
+                    <form action='/login' method='POST'>{% csrf_token %}
                         <div class="form-group">
                             <label for="loginusername">Username</label>
                             <input type="text" class="form-control" id="loginusername" name="loginusername" placeholder="Choose a unique username" Required>
